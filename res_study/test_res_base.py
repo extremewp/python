@@ -1,9 +1,20 @@
 import json
+import os
 
+import pytest
 import requests
-
+# @pytest.fixture()
+# scope: "Union[_ScopeName, Callable[[str, Config], _ScopeName]]" = "function"         注释器作用域
+# params: Optional[Iterable[object]] = None,                                           数据驱动
+# autouse: bool = False,                                                                手动还是自动
+# ids: Optional[                                                                        有数据驱动时更改别名
+#     Union[Sequence[Optional[object]], Callable[[Any], Optional[object]]]
+# ] = None,
+# name: Optional[str] = None,                                                           别名
 
 class TestResBase:
+
+
     def test_res(self):
         url = 'https://gatetest.googutwine.com/user/userLogin/getLoginGraphicVerificationCode'
         date = {"header": {"app_id": "10000001", "time_stamp": "1665730574364",
@@ -16,3 +27,6 @@ class TestResBase:
         date = json.dumps(date)
         res = requests.session().request(method="post",url=url, data=date, headers=header)
 
+    @pytest.mark.parametrize("asd",[['张三',12],['李四',11],['王五',10]])
+    def test_os(self,asd):
+        print("注册:  %s" % asd)
