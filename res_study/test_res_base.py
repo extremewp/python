@@ -1,5 +1,7 @@
 import json
 import os
+import random
+from functools import partial
 
 import pytest
 import requests
@@ -11,6 +13,8 @@ import requests
 #     Union[Sequence[Optional[object]], Callable[[Any], Optional[object]]]
 # ] = None,
 # name: Optional[str] = None,                                                           别名
+import yaml
+
 
 class TestResBase:
 
@@ -27,6 +31,15 @@ class TestResBase:
         date = json.dumps(date)
         res = requests.session().request(method="post",url=url, data=date, headers=header)
 
-    @pytest.mark.parametrize("asd",[['张三',12],['李四',11],['王五',10]])
-    def test_os(self,asd):
-        print("注册:  %s" % asd)
+    # @pytest.mark.parametrize("asd",[1,2,3,4,5,6,7])
+    def test(self,x,y):
+       return  x - y
+    def test_asd(self):
+        a = partial(self.test, 5)
+        print(a(12))
+    def test_dasd(self):
+
+       res = random.choice([19520409998,19520409997])
+       return res
+    def test_yaml_dasdasd(self):
+        print(yaml.safe_load(open('./test.yaml')))
