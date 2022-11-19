@@ -21,13 +21,13 @@ class Test:
                 ]
         }
 
-        with open('./test.yaml', 'w') as f:
+        with open('test.yml', 'w') as f:
             yaml.safe_dump(data=data, stream=f)
 
     def test_pringt(self, x=1, y=2):
         return y
 
     def test_asdasd(self):
-        api = partial(self.test_pringt, **yaml.safe_load(open("./test.yaml"))['api'])
+        api = partial(self.test_pringt, **yaml.safe_load(open("test.yml"))['api'])
         print(api)
-        print(yaml.safe_load(open("./test.yaml"))['case'])
+        print(yaml.safe_load(open("test.yml"))['case'])

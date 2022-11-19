@@ -6,9 +6,9 @@ import yaml
 
 class YamlUtil:
     # 读取yaml文件
-    def read_extract_yaml(self, key):
-        with open(os.getcwd() + 'extract.yaml') as f:
-            return yaml.safe_load(stream=f, Loader=yaml.FullLoader)[key]
+    def read_extract_yaml(self, resurl ):
+        with open(os.getcwd() + resurl) as f:
+            return yaml.safe_load(stream=f, Loader=yaml.FullLoader)
 
     # 写入yaml文件
     def writ_extract_yaml(self, date):

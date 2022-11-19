@@ -22,3 +22,4 @@ class SendRequest:
             res = self.session.request(url=url, params=data, headers=header, method=mothod, **kwargs)
 
         return res.json()
+

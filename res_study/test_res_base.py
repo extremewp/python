@@ -1,7 +1,13 @@
+
 import json
-import os
+
 import random
+import os
+import importlib
+import inspect
 from functools import partial
+
+import jinja2
 
 import pytest
 import requests
@@ -14,6 +20,8 @@ import requests
 # ] = None,
 # name: Optional[str] = None,                                                           别名
 import yaml
+
+from common.yaml_util import YamlUtil
 
 
 class TestResBase:
@@ -42,4 +50,33 @@ class TestResBase:
        res = random.choice([19520409998,19520409997])
        return res
     def test_yaml_dasdasd(self):
-        print(yaml.safe_load(open('./test.yaml')))
+        print(yaml.safe_load(open('test01.yml')))
+
+    def test_asd1asd(self):
+        with open("test01.yml",'r') as f:
+            print(yaml.safe_load(f))
+
+    def a1(self):
+        return  12
+
+
+
+    def render(self,tpl_path, **kwargs):
+        """渲染yml文件"""
+        path, filename = os.path.split(tpl_path)
+        return jinja2.Environment(loader=jinja2.FileSystemLoader(path or './')
+                                  ).get_template(filename).render(**kwargs)
+
+    def all_functions(self):
+        """加载debug.py模块"""
+        debug_module = importlib.import_module("debug")
+        all_function = inspect.getmembers(debug_module, inspect.isfunction)
+        print(dict(all_function))
+        return dict(all_function)
+
+if __name__ == '__main__':
+        r = TestResBase().render("../res_study/test01.yml", **TestResBase().all_functions())
+        print(r)
+        print(yaml.safe_load(r))
+
+
