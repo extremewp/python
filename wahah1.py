@@ -11,7 +11,7 @@ def render(tpl_path, **kwargs):
     """渲染yml文件"""
     path, filename = os.path.split(tpl_path)
     return jinja2.Environment(loader=jinja2.FileSystemLoader(path or './')
-    ).get_template(filename).render(**kwargs)
+                              ).get_template(filename).render(**kwargs)
 
 
 def all_functions():
@@ -21,8 +21,11 @@ def all_functions():
     print(dict(all_function))
     return dict(all_function)
 
+
 def rand_str():
     return str(random.randint(1000000, 2000000))
+
+
 if __name__ == '__main__':
     r = render("a.yaml", **all_functions())
     print(r)
