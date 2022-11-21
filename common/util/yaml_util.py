@@ -58,7 +58,7 @@ class YamlUtil:
         YamlIncludeConstructor.add_to_loader_class(loader_class=yaml.FullLoader)
         if method_file_name == None:
             try:
-                with open(os.getcwd() + yaml_rul_name, mode='r', encoding='utf-8') as f:
+                with open( yaml_rul_name, mode='r', encoding='utf-8') as f:
                     return yaml.load(stream=f, Loader=yaml.FullLoader)
             except ConstructorError :
                 return "method_file_name必传为使用python文件名称"

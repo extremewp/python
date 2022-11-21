@@ -1,4 +1,2 @@
-a : !include "b.yaml"
 b : 1231
-c : {{rand_str()}}
-d : {{rand_str1()}}
+date : !include "b.yaml"

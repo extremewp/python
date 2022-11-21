@@ -1,0 +1,18 @@
+date:
+  body:
+    mobile: 17319420336
+  header:
+    app_id: '10000001'
+    imei: 671554c651cc966e7b9b12d693c2fb30
+    message_id: '1665730574364'
+    resources_id: '-999'
+    terminal: '2'
+    time_stamp: '1665730574364'
+    token: 7e17728f09d7a24a83960687a03c9f63
+    transaction_type: listUserEvaluationBill
+    version: 2.0.0
+header:
+  Content-Type: application/json;charset=UTF-8
+method: post
+test_name: "\u7528\u4E8E\u7528\u6237\u767B\u5F55"
+url: https://gatetest.googutwine.com/user/userLogin/getLoginGraphicVerificationCode

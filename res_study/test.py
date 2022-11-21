@@ -13,12 +13,19 @@ class Test:
                 "header": {'Content-Type': 'application/json;charset=UTF-8'
                            }
             },
-            "case":
-                [
-                    [1, 3],
-                    [2, 4],
-                    [5, 6],
-                ]
+            "date":[
+                {
+                    "username":"张三",
+                    "password":"123456"
+                },
+            {
+                "username": "张三",
+                "password": "123456"
+            },
+               {
+                    "username":"张三",
+                    "password":"123456"
+                }]
         }
 
         with open('test.yml', 'w') as f:

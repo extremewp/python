@@ -3,7 +3,7 @@ import time
 
 import requests
 
-from common.yaml_util import YamlUtil
+from common.util.yaml_util import YamlUtil
 
 
 class SendRequest:
@@ -19,7 +19,7 @@ class SendRequest:
             res = self.session.request(url=url, params=data, headers=header, method=mothod, **kwargs)
         elif mothod == 'post':
             data = json.dumps(data)
-            res = self.session.request(url=url, params=data, headers=header, method=mothod, **kwargs)
-
+            res = self.session.request(url=url, data=data, headers=header, method=mothod, **kwargs)
+        if "file" in data:
+            res = self.session.request(url=url, files=data, headers=header, method=mothod)
         return res.json()
-

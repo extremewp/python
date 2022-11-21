@@ -1,0 +1,3 @@
+user_yaml :
+  yaml_basic_url : ../../testcase/user.yaml
+  relation_data_url :
