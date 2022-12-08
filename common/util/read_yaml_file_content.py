@@ -1,13 +1,14 @@
 import yaml
 
+
 from common.util.yaml_util import YamlUtil
 
 
-class TestReadYamlFileContent:
+class ReadYamlFileContent:
 
-    def test_read_yaml_file_content(self):
+    def read_yaml_file_content_all(self):
         self.yml = YamlUtil()
-        with open("../../testcase/config_yaml_url.yaml") as f:
+        with open("./testcase/config_yaml_url.yaml") as f:
             yaml_content = dict(yaml.safe_load(f)).values()
             for yaml_content in yaml_content:
                 yaml_rul_name = yaml_content['yaml_basic_url']
@@ -18,5 +19,5 @@ class TestReadYamlFileContent:
                 else:
                     yaml_date = self.yml.read_testcase_yaml(yaml_rul_name=yaml_rul_name,
                                                             method_file_name=method_file_name)
-                return yaml_date
+                return  yaml_date
 

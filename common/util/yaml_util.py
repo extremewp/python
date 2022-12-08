@@ -40,9 +40,9 @@ class YamlUtil:
             return yaml.load(stream=f, Loader=yaml.FullLoader)
 
     # 写入yaml文件
-    def writ_extract_yaml(self, date):
-        with open(os.getcwd() + 'extract.yaml', 'wr') as f:
-            yaml.safe_load(stream=f, data=date)
+    def writ_extract_yaml(self, date,url):
+        with open(url, 'w') as f:
+            yaml.safe_dump(stream=f, data=date)
 
     # 清空yanl文件
     def clear_extract_yaml(self):
