@@ -12,3 +12,4 @@ class SignUtil:
         m.update(datas.encode("utf8"))
         sign = m.hexdigest()
         return sign
+
